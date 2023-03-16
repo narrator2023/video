@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lin的分享室</title>
+    <style>
+        /* 手机顶边栏 */
+    .nav, .menu {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center; 
+    }
+    
+    .nav {
+        position: relative;
+        background-color: rgb(139, 139, 139);
+        padding: 20px;
+        transition: 0.5s;
+        /* border-radius: 50px; */
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0,0,0,.2);
+    }
+    
+    .menu {
+        margin: 11px;
+        padding: 0;
+        width: 0;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    
+    .nav input:checked ~ .menu {
+        width: 450px;
+    }
+    
+    .menu li {
+        list-style: none;
+        margin: 0 10px;
+    }
+    
+    .menu li a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: 0.5s;
+    }
+    
+    .menu li a:hover {
+        color: #e7e7e7;
+    }
+    
+    .nav input {
+        width: 40px;
+        height: 10px;
+        cursor: pointer;
+        opacity: 0;
+    }
+    
+    .nav span {
+        position: absolute;
+        left: 30px;
+        width: 30px;
+        height: 4px;
+        border-radius: 50px;
+        background-color: rgb(255, 255, 255);
+        pointer-events: none;
+        transition: 0.5s;
+    }
+    
+    .nav input:checked ~ span {
+        background-color: #ffffff;
+    }
+    
+    .nav span:nth-child(2) {
+        transform: translateY(-8px);
+    }
+    
+    .nav input:checked ~ span:nth-child(2) {
+        transform: translateY(0) rotate(-45deg);
+    }
+    .nav span:nth-child(3) {
+        transform: translateY(8px);
+    }
+    
+    .nav input:checked ~ span:nth-child(3) {
+        transform: translateY(0) rotate(45deg);
+    }
+        /* 侧边栏css */
+        #cebian {
+            height: 100vh;
+            width: 300px;
+            background-color: rgb(128, 128, 128);
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width:800px) {
+            #cebian {
+                display: none;
+            }
+            .neiron {
+                position: relative;
+                left: 13%;
+                width: 90%;
+            }
+        }
+        @media (min-width:800px) and (max-width:1980px) {
+            .nav {
+                display: none;
+            }
+            
+        }
+        @media (min-width:800px) and (max-width:1420px) {
+            #cebian {
+                width: 22%;
+            }
+
+        }
+        /* 内容区css */
+        .neiron {
+            width: 75%;
+        }
+        #neiron01 {
+            height: 290px;
+            top: 120px;
+            background-color: rgb(139, 139, 139);
+            position: absolute;
+            right: 5%;
+        }
+        #neiron02 {
+            height: 290px;
+            top: 440px;
+            background-color: rgb(139, 139, 139);
+            position: absolute;
+            right: 5%;
+        }
+        .neiron {
+            background-color: #FFF;
+            border: none;
+            border-radius: 6px;
+            -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+            transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+}
+        .neiron:hover {
+            transform: translate(0,-5px);
+            transition-delay: 0s !important;
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.24);
+}
+    </style>
+</head>
+<body>
+    <!-- 手机顶边栏 -->
+    <div class="nav">
+        <input type="checkbox">
+          <span></span>
+          <span></span>
+          <div class="menu">
+            <li><a href="#" title="分享">share</a></li>
+            <li><a href="#" title="加入">join</a></li>
+            <li><a href="#" title="关于我们">about</a></li>
+          </div>
+      </div>
+    <!-- 侧边栏 -->
+    <div id="cebian" >
+
+    </div>
+    <!-- 内容区 -->
+    <div id="neiron01" class="neiron" onclick="window.open('./video01.html');">
+        <p style=" font-size: 30px; color: #ffffff; position: absolute; top: 120px; left: 50% ; transform: translateX(-50%);"><b>点击这里</b></p>
+    </div>
+    <div id="neiron02" class="neiron">
+
+    </div>
+</body>
+</html>
