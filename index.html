@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lin的分享室</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        document.onreadystatechange = function() {
+            if (document.readyState == "complete") {
+                setTimeout(function() {
+                    $(".loading").fadeOut(500);
+                }, 500);
+            }
+        }
+    </script>
+    <style>
+    /* 加载页面 */
+    .loading {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(23, 57, 151);
+            z-index: 10000;
+    }
+        /* 手机顶边栏 */
+    .nav, .menu {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center; 
+    }
+    
+    .nav {
+        position: relative;
+        background-color: rgb(139, 139, 139);
+        padding: 20px;
+        transition: 0.5s;
+        /* border-radius: 50px; */
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0,0,0,.2);
+    }
+    
+    .menu {
+        margin: 11px;
+        padding: 0;
+        width: 0;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    
+    .nav input:checked ~ .menu {
+        width: 450px;
+    }
+    
+    .menu li {
+        list-style: none;
+        margin: 0 10px;
+    }
+    
+    .menu li a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: 0.5s;
+    }
+    
+    .menu li a:hover {
+        color: #e7e7e7;
+    }
+    
+    .nav input {
+        width: 40px;
+        height: 10px;
+        cursor: pointer;
+        opacity: 0;
+    }
+    
+    .nav span {
+        position: absolute;
+        left: 30px;
+        width: 30px;
+        height: 4px;
+        border-radius: 50px;
+        background-color: rgb(255, 255, 255);
+        pointer-events: none;
+        transition: 0.5s;
+    }
+    
+    .nav input:checked ~ span {
+        background-color: #ffffff;
+    }
+    
+    .nav span:nth-child(2) {
+        transform: translateY(-8px);
+    }
+    
+    .nav input:checked ~ span:nth-child(2) {
+        transform: translateY(0) rotate(-45deg);
+    }
+    .nav span:nth-child(3) {
+        transform: translateY(8px);
+    }
+    
+    .nav input:checked ~ span:nth-child(3) {
+        transform: translateY(0) rotate(45deg);
+    }
+        /* 侧边栏css */
+        html,body {
+            height: 100%;
+        }
+        #cebian {
+            height: 100%;
+            width: 300px;
+            background-color: rgb(77, 77, 77);
+            box-shadow:25px 50px 50px  rgba(0, 0, 0, 0.24) ;
+            position: fixed;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width:800px) {
+            #cebian {
+                display: none;
+            }
+            .neiron {
+                position: relative;
+                left: 13%;
+                width: 90%;
+            }
+            .hover {
+                display: none;
+            }
+            .video {
+                display: none;
+            }
+            .biaoti {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            top: 190px;
+            }
+            .time  {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 15px;
+                top: 250px;
+                color: #666666;
+            }
+            .jeishao {
+                display: none;
+            }
+            #neiron01 {
+            height: 290px;
+            top: 220px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            width: 80%;
+        }
+        #neiron02 {
+            height: 290px;
+            top: 540px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            width: 80%;
+        }
+        #neiron05 {
+            height: 290px;
+            top: 860px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            width: 80%;
+        }
+        #neiron06 {
+            height: 290px;
+            top: 1180px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            width: 80%;
+        }
+
+        }
+        @media (max-width:365px) {
+            .biaoti {
+                font-size: 16px;
+            }
+        }
+        @media (min-width:801px) and (max-width:1599px) {
+            .nav {
+                display: none;
+            }
+            .shouji {
+                display: none;
+            }
+            .biaoti {
+                position: absolute;
+                left: 50px;
+                font-size: 20px;
+                top: 50px;
+            }
+            .time  {
+                position: absolute;
+                left: 70px;
+                font-size: 15px;
+                top: 90px;
+                color: #666666;
+            }
+            .jeishao {
+                position: absolute;
+                left: 30px;
+                top: 130px;
+                color: #666666;
+                font-size: 15px;
+            }
+            #neiron01 {
+            height: 290px;
+            top: 120px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 5%;
+            width: 70%;
+        }
+        #neiron02 {
+            height: 290px;
+            top: 440px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            right: 5%;
+            width: 70%;
+        }
+        #neiron03 {
+            height: 70px;
+            top: 30px;
+            background-color: rgb(240, 239, 239);
+            position: absolute;
+            right: 110px;
+            width: 100px;
+            margin: 0 10px 0;
+        }
+        #neiron04 {
+            height: 70px;
+            top: 30px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 230px;
+            width: 100px;
+            margin: 0 10px 0;
+        }
+            #neiron06 {
+            height: 290px;
+            top:1080px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 5%;
+            width: 70%;
+        }
+            #neiron05 {
+            height: 290px;
+            top: 760px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            right: 5%;
+            width: 70%;
+        }
+        }
+        @media (min-width:1600px) and (max-width:1980px) {
+            .nav {
+                display: none;
+            }
+            .shouji {
+                display: none;
+            }
+            .biaoti {
+            position: absolute;
+            left: 70px;
+            font-size: 25px;
+            top: 50px;
+            }
+            .time  {
+                position: absolute;
+                left: 70px;
+                font-size: 17px;
+                top: 90px;
+                color: #666666;
+            }
+            .jeishao {
+                position: absolute;
+                left: 50px;
+                top: 130px;
+                color: #666666;
+                font-size: 17px;
+            }
+            #neiron06 {
+            height: 290px;
+            top: 120px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 42%;
+            width: 38%;
+        }
+            #neiron05 {
+            height: 290px;
+            top: 440px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            right: 42%;
+            width: 38%;
+        }
+            #neiron01 {
+            height: 290px;
+            top: 120px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 1%;
+            width: 38%;
+        }
+        #neiron02 {
+            height: 290px;
+            top: 440px;
+            background-color: rgb(241, 241, 241);
+            position: absolute;
+            right: 1%;
+            width: 38%;
+        }
+        #neiron03 {
+            height: 70px;
+            top: 30px;
+            background-color: rgb(240, 239, 239);
+            position: absolute;
+            right: 30px;
+            width: 100px;
+            margin: 0 10px 0;
+        }
+        #neiron04 {
+            height: 70px;
+            top: 30px;
+            background-color: rgb(240, 240, 240);
+            position: absolute;
+            right: 150px;
+            width: 100px;
+            margin: 0 10px 0;
+        }
+            
+        }
+        @media (min-width:800px) and (max-width:1420px) {
+            #cebian {
+                width: 20%;
+            }
+
+        }
+        /* 内容区css */
+
+        .neiron {
+            background-color: #FFF;
+            border: none;
+            border-radius: 6px;
+            -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+            transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+        }
+        .neiron:hover {
+            transform: translate(0,-5px);
+            transition-delay: 0s !important;
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.24);
+        
+        }
+        .hover {
+            border-radius: 6px;
+        }
+        #neiron04:hover {
+            background: #cecece;
+            -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+            transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+        }
+        #neiron03:hover {
+            background: #cecece;
+            -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+            transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+        }
+        #neiron02:hover {
+            background: #cecece;
+        }
+        #neiron01:hover {
+            background: #cecece;
+        }
+        .video {
+            height: 260px; 
+            width: 300px;
+            background-color: rgb(163, 163, 163); 
+            position: absolute; 
+            top: 15px;
+            right: 15px;
+            border-radius: 6px;
+        }
+        .shouji {
+            height: 160px; 
+            width: 90%;
+            background-color: rgb(163, 163, 163); 
+            position: absolute; 
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 6px;
+        }
+
+    </style>
+</head>
+<body>
+     <!-- 加载页面 -->
+    <div class="loading">
+        <b style="color: #ffffff; position: absolute; left: 50%;transform: translateX(-50%);top: 50%; font-size: 50px; ">加载中</b>
+        <p style="color: #ffffff; position: absolute; left: 50%;transform: translateX(-50%);top: 60%; font-size: 20px; ">如果卡在此页面请刷新(QAQ)</p>
+        <div class="loader"></div>
+    </div>
+    <!-- 手机顶边栏 -->
+    <div class="nav">
+        <input type="checkbox">
+        <!--          这里没有彩蛋! :)           -->
+          <span></span>
+          <span></span>
+          <div class="menu">
+            <!--         都说这里没有彩蛋了！别扒源码了！ :(          -->
+            <li><a href="#" >home</a></li>
+            <li><a href="#">join</a></li>
+            <li><a href="#">about</a></li>
+          </div>
+      </div>
+    <!-- 侧边栏 -->
+
+    <div id="cebian">
+        <div class="neiron" style="top: 190px; background-color: rgb(78,78,78); height: 50px; width: 82%; position: relative; left: 8%;"><b style=" font-size: 20px; color: rgb(255, 255, 255); position: relative; left: 35%; top: 30%;">home</b></div>
+        <div class="neiron" style="top: 200px; background-color: rgb(78,78,78); height: 50px; width: 82%; position: relative; left: 8%;"><b style=" font-size: 20px; color: rgb(255, 255, 255); position: relative; left: 39%; top: 30%;">join</b></div>
+        <div class="neiron" style="top: 210px; background-color: rgb(78,78,78); height: 50px; width: 82%; position: relative; left: 8%;"><b style=" font-size: 20px; color: rgb(255, 255, 255); position: relative; left: 35%; top: 30%;">about</b></div>
+    </div>
+    <!-- 内容区 -->
+    <div id="neiron04" class="hover"></div>
+    <div id="neiron03" class="hover"></div>
+    <div id="neiron01" class="neiron" onclick="window.open('./video01.html');">
+        <b class="biaoti"> 第一个视频</b>
+        <p class="time">2023.3.18</p>
+        <p class="jeishao">相关游戏：军团要塞2(tf2)，随手<br>录的视频...</p>
+        <div class="video"></div>
+        <div class="shouji"></div>
+    </div>
+    <div id="neiron02" class="neiron">
+        <b class="biaoti"> lin分享的视频</b>
+        <p class="time">2023.3.18</p>
+        <p class="jeishao">相关游戏：极品飞车21热度<br>(Need for Speed Heat)，随<br>手录的视频...</p>
+        <div class="video"></div>
+        <div class="shouji"></div>
+    </div> 
+    <div id="neiron05" class="neiron" onclick="window.open('./video01.html');">
+        <b class="biaoti"> 灰常厉害的视频</b>
+        <p class="time">2023.3.18</p>
+        <p class="jeishao">相关游戏：极品飞车21热度<br>(Need for Speed Heat)，随<br>手录的视频...</p>
+        <div class="video"></div>
+        <div class="shouji"></div>
+    </div>   
+    <div id="neiron06" class="neiron" onclick="window.open('./video01.html');">
+        <b class="biaoti"> 灰常厉害的视频</b>
+        <p class="time">2023.3.18</p>
+        <p class="jeishao">相关游戏：极品飞车21热度<br>(Need for Speed Heat)，随<br>手录的视频...</p>
+        <div class="video"></div>
+        <div class="shouji"></div>
+    </div>   
+</body>
+</html>
